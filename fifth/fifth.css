@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overflow: hidden;
+    background: #222;
+  }
+  .circles-container {
+    position: relative;
+    height: calc(100vh - 50px);
+  }
+  
+  .circle {
+    position: absolute;
+  }
+  
+  .circle-1 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    position: relative;
+  }
+  .circle-2 {
+    left: 46%;
+    top: 32%;
+  }
+  .circle-3 {
+    left: 40%;
+    top: 32%;
+  }
+  .circle-4 {
+    left: 36%;
+    top: 32%;
+  }
+  .circle-5 {
+    left: 31%;
+    top: 25%;
+  }
+  .circle-6 {
+    left: 40%;
+    top: 25%;
+  }
+  .circle-7 {
+    left: 30%;
+    top: 15%;
+  }
+  .circle-8 {
+    left: 32%;
+    top: 13%;
+  }
+  
+  .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: #fff;
+  }
+  .dot-1 {
+    left: 46.2%;
+    top: 41.3%;
+  }
+  .dot-2 {
+    left: 45.5%;
+    top: 31%;
+    opacity: 0;
+  }
+  .dot-3 {
+    left: 39.5%;
+    top: 31%;
+    opacity: 0;
+  }
+  .dot-4 {
+    left: 35.5%;
+    top: 31%;
+    opacity: 0;
+  }
+  .dot-5 {
+    left: 30.5%;
+    top: 24%;
+    opacity: 0;
+  }
+  .dot-6 {
+    left: 39.5%;
+    top: 24%;
+    opacity: 0;
+  }
+  .dot-7 {
+    left: 29.5%;
+    top: 14%;
+    opacity: 0;
+  }
+  .dot-8 {
+    left: 31.4%;
+    top: 12%;
+    opacity: 0;
+  }
+  
+  .numbers-container {
+    height: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    opacity: 0;
+    
+  }
+  .number {
+    flex: 1;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .number-1 {
+    background-color: #3352cc;
+  }
+  .number-2 {
+    background-color: #d10f39;
+  }
+  .number-3 {
+    background-color: #1fe044;
+  }
+  .number-4 {
+    background-color: #da3d25;
+  }
+  
