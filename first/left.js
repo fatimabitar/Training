@@ -9,6 +9,7 @@ let levelTime = 0.28;
 let i = 1;
 let flag = true;
 let result = [];
+let pointsL = 0;
 
 // const randomNumber = Math.floor(Math.random() * 8);
 
@@ -163,6 +164,8 @@ const check = (shuffeledShapes, randomNumber) => {
       if (randomId === userInput) {
         if (result.length < 1) {
           result.push(true);
+          //Final Point *****************
+          pointsL += 1;
         }
       } else {
         if (result.length < 1) {
@@ -174,6 +177,7 @@ const check = (shuffeledShapes, randomNumber) => {
       console.error("error");
     }
   });
+  return pointsL;
 };
 
 window.addEventListener("load", () => {

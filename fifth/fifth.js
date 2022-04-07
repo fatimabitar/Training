@@ -13,6 +13,9 @@ const numbers = document.querySelectorAll(".number");
 const numbersContainer = document.querySelector(".numbers-container");
 let randomRounds = Math.floor(Math.random() * (8 - 5) + 5);
 
+/* Final Result is here */
+let lastPoints = 0;
+
 let speed = 3;
 let interval = 2000;
 let totalTime = randomRounds * interval;
@@ -129,6 +132,8 @@ const check = () => {
       if (pathColor === numberColor) {
         if (result.length < 1) {
           result.push(true);
+          //Last points
+          lastPoints += 1;
         }
       } else {
         if (result.length < 1) {

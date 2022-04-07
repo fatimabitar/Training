@@ -9,6 +9,7 @@ let levelTime = 0.28;
 let i = 1;
 let flag = true;
 let result = [];
+let pointsB = 0;
 
 const fillColors = [
   "#ffa041",
@@ -165,6 +166,8 @@ const check = (shuffeledShapes, randomNumber) => {
       if (randomId === userInput) {
         if (result.length < 1) {
           result.push(true);
+          //Final Point *****************
+          pointsB += 1;
         }
       } else {
         if (result.length < 1) {
@@ -176,6 +179,7 @@ const check = (shuffeledShapes, randomNumber) => {
       console.error("error");
     }
   });
+  return pointsB;
 };
 
 window.addEventListener("load", () => {

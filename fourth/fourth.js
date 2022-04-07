@@ -1,5 +1,6 @@
 //Global Values
 const balls = document.querySelector(".balls");
+const ballsContainer = document.querySelector(".balls-container");
 let duration = 4000; /* Balls Speed */
 let levelTime = 30000;
 
@@ -24,6 +25,11 @@ let result1 = [];
 let result2 = [];
 let result3 = [];
 let result4 = [];
+
+let points1 = 0;
+let points2 = 0;
+let points3 = 0;
+let points4 = 0;
 
 //Random arrow picker
 const newArrow = (shuffeledArrows) => {
@@ -82,7 +88,7 @@ const generate = () => {
 
 //Random Balls movement
 function makeNewPosition() {
-  const w = 1400;
+  const w = ballsContainer.getBoundingClientRect().width - 50;
   const h = 550;
   const nh = Math.floor(Math.random() * h);
   const nw = Math.floor(Math.random() * w);
@@ -112,16 +118,26 @@ const firstTracking = (currentArrow) => {
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result1.length <= 5) {
+        if (result1.length <= 4) {
           result1.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       }
@@ -130,23 +146,33 @@ const firstTracking = (currentArrow) => {
   arrowDown.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result1.length <= 5) {
+        if (result1.length <= 4) {
           result1.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result1.length <= 5) {
+        if (result1.length <= 4) {
           result1.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       }
@@ -155,23 +181,33 @@ const firstTracking = (currentArrow) => {
   arrowLeft.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result1.length <= 5) {
+        if (result1.length <= 4) {
           result1.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result1.length <= 5) {
+        if (result1.length <= 4) {
           result1.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       }
@@ -180,13 +216,18 @@ const firstTracking = (currentArrow) => {
   arrowRight.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result1.length <= 5) {
+        if (result1.length <= 4) {
           result1.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       } else {
@@ -197,6 +238,11 @@ const firstTracking = (currentArrow) => {
         }
         if (result1.length === 5) {
           console.log(result1);
+          result1.map((item) => {
+            if (item === true) {
+              points1 += 1;
+            }
+          });
           return;
         }
       }
@@ -213,7 +259,7 @@ const secondTracking = (currentArrow) => {
   arrowUp1.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
@@ -223,13 +269,18 @@ const secondTracking = (currentArrow) => {
           return;
         }
       } else {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       }
@@ -238,23 +289,33 @@ const secondTracking = (currentArrow) => {
   arrowDown1.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       }
@@ -263,23 +324,33 @@ const secondTracking = (currentArrow) => {
   arrowLeft1.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       }
@@ -288,23 +359,33 @@ const secondTracking = (currentArrow) => {
   arrowRight1.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result2.length <= 5) {
+        if (result2.length <= 4) {
           result2.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result2.length === 5) {
           console.log(result2);
+          result2.map((item) => {
+            if (item === true) {
+              points2 += 1;
+            }
+          });
           return;
         }
       }
@@ -321,23 +402,33 @@ const thirdTracking = (currentArrow) => {
   arrowUp2.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       }
@@ -346,23 +437,33 @@ const thirdTracking = (currentArrow) => {
   arrowDown2.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       }
@@ -371,13 +472,18 @@ const thirdTracking = (currentArrow) => {
   arrowLeft2.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       } else {
@@ -388,6 +494,11 @@ const thirdTracking = (currentArrow) => {
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       }
@@ -396,23 +507,33 @@ const thirdTracking = (currentArrow) => {
   arrowRight2.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result3.length <= 5) {
+        if (result3.length <= 4) {
           result3.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result3.length === 5) {
           console.log(result3);
+          result3.map((item) => {
+            if (item === true) {
+              points3 += 1;
+            }
+          });
           return;
         }
       }
@@ -436,6 +557,11 @@ const fourthTracking = (currentArrow) => {
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       } else {
@@ -446,6 +572,11 @@ const fourthTracking = (currentArrow) => {
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       }
@@ -471,6 +602,11 @@ const fourthTracking = (currentArrow) => {
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       }
@@ -479,23 +615,33 @@ const fourthTracking = (currentArrow) => {
   arrowLeft3.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result4.length <= 5) {
+        if (result4.length <= 4) {
           result4.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       } else {
-        if (result4.length <= 5) {
+        if (result4.length <= 4) {
           result4.push(false);
           item.style.background = "#f44";
           item.style.pointerEvents = "none";
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       }
@@ -504,13 +650,18 @@ const fourthTracking = (currentArrow) => {
   arrowRight3.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains(currentArrow)) {
-        if (result4.length <= 5) {
+        if (result4.length <= 4) {
           result4.push(true);
           item.style.background = "#fff";
           item.style.pointerEvents = "none";
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       } else {
@@ -521,6 +672,11 @@ const fourthTracking = (currentArrow) => {
         }
         if (result4.length === 5) {
           console.log(result4);
+          result4.map((item) => {
+            if (item === true) {
+              points4 += 1;
+            }
+          });
           return;
         }
       }

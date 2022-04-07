@@ -14,6 +14,9 @@ let bCount = 0;
 let cCount = 0;
 let dCount = 0;
 
+let finalResult = new Set();
+let points = 0;
+
 //A function to shuffle an array
 function shuffle(array) {
   let currentIndex = array.length,
@@ -136,11 +139,13 @@ const check = (xTotal) => {
         if (key.toString() === direction) {
           if (result.length < 1) {
             result.push(true);
+            finalResult.add({ name: `${itemIndex}`, result: true });
           }
           console.log("result is true.");
         } else {
           if (result.length < 1) {
             result.push(false);
+            finalResult.add({ name: `${itemIndex}`, result: false });
           }
           console.log("result is false.");
         }

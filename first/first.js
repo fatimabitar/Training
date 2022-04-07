@@ -9,7 +9,7 @@ let time = 15000;
 let i = 1;
 let flag = true;
 let result = [];
-let points = 0;
+let pointsR = 0;
 
 // const randomNumber = Math.floor(Math.random() * 8);
 
@@ -166,6 +166,8 @@ const check = (shuffeledShapes, randomNumber) => {
       if (randomId === userInput) {
         if (result.length < 1) {
           result.push(true);
+          //Final Point *****************
+          pointsR += 1;
         }
       } else {
         if (result.length < 1) {
@@ -177,11 +179,13 @@ const check = (shuffeledShapes, randomNumber) => {
       console.error("error");
     }
   });
+  return pointsR;
 };
 
 window.addEventListener("load", () => {
   generateText("right");
   generate();
+  console.log(points);
   //gsap
   const tl = gsap.timeline();
   tl.to(".text", { display: "none", duration: 3 })

@@ -129,14 +129,12 @@ const check = (movesNum, x, y) => {
           if (result.length < 1) {
             result.push(true);
             finalResult.add({ name: `${itemIndex}`, result: true });
-            // calculateResult(finalResult);
           }
           console.log("result is true.");
         } else {
           if (result.length < 1) {
             result.push(false);
             finalResult.add({ name: `${itemIndex}`, result: false });
-            // calculateResult(finalResult);
           }
           console.log("result is false.");
         }
