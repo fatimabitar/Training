@@ -158,7 +158,6 @@ const generate = () => {
 const check = (shuffeledShapes, randomNumber) => {
   const randomId = shuffeledShapes[randomNumber].id;
 
-  console.log(randomId);
   window.addEventListener("keydown", (e) => {
     try {
       let key = e.key;

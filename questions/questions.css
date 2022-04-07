@@ -63,3 +63,39 @@ body {
   background: #eee;
   padding: 20px;
 }
+.input {
+  position: absolute;
+  right: 5%;
+  bottom: 45%;
+  direction: rtl;
+}
+.input  input{
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  height: 40px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+input::placeholder{
+  font-family: "Tajawal", sans-serif;
+}
+
+.input button {
+  height: 40px;
+  width: 60px;
+  background: #fff;
+  color: #555;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
