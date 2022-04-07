@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Test</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     * {
@@ -14,6 +21,33 @@
     body {
       overflow: hidden;
       position: relative;
+      font-family: "Tajawal", sans-serif;
+    }
+    .test-explanation {
+      width: 100%;
+      height: 100vh;
+      z-index: 10000;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .test-explanation > p {
+      width: 80%;
+      text-align: center;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    .arbic {
+      text-align: right;
+    }
+    .en {
+      text-align: left;
+      margin-top: 50px !important;
     }
     .counter {
       position: fixed;
@@ -69,7 +103,7 @@
       transform: translate(-50%, -50%);
       background-color: #fff;
       padding: 20px 50px;
-      font-weight: bold;
+      /* font-weight: bold; */
       z-index: 10;
       font-size: 18px;
     }
@@ -91,6 +125,27 @@
     }
   </style>
   <body>
+    <div class="test-explanation">
+      <p class="arabic">
+        سيطلب منك اغلاق العين اليسرى و من ثم التركيز على الشكل الابيض ذو الحواف
+        السوداء موجود في منتصف الشاشة و سيظهر بعده 8 اشكال مختلفة بالشكل و اللون
+        لمدة قصيرة وستختفي ليظهر مانها مربعات<strong>
+          المطلوب منك الضغط في لوحة المفاتيح على المربع الذي يمثل المكان الذي
+          كان موجود فيه تكرار هذا الشكل</strong
+        >
+      </p>
+      <p class="en">
+        You will be asked to close the left eye and then focus on the white
+        shape with edges The black one is in the middle of the screen, and then
+        8 different shapes in shape and color will appear For a short time, it
+        will disappear, leaving squares appearing
+        <strong>
+          You are required to press on the keyboard on the square that
+          represents the place you are There was a repetition of this
+          form</strong
+        >
+      </p>
+    </div>
     <div class="counter"><span id="seconds"></span> Seconds</div>
     <div class="container">
       <div class="text">
@@ -109,7 +164,7 @@
       const randomShape = document.querySelector(".random-shape");
       const numbers = document.querySelector(".numbers");
       // let direction = "right";
-      let time = 15000;
+      let time = 20000;
       let levelTime = 0.28;
       let i = 1;
       let flag = true;
@@ -298,7 +353,11 @@
         generate();
         //gsap
         const tl = gsap.timeline();
-        tl.to(".text", { display: "none", duration: 3 })
+        tl.to(".test-explanation", {
+          display: "none",
+          duration: 5,
+        })
+          .to(".text", { display: "none", duration: 6 })
           .from(".shapes-container", { opacity: 1, duration: levelTime })
           .to(".shapes-container", {
             display: "none",
@@ -309,6 +368,7 @@
             duration: 0.1,
             onComplete: check(shuffeledShapes, randomNumber),
           });
+
         let timeleft = time / 1000;
         let downloadTimer = setInterval(function () {
           timeleft--;

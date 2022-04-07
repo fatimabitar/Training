@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Test</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     * {
@@ -14,6 +21,7 @@
     body {
       overflow: hidden;
       position: relative;
+      font-family: "Tajawal", sans-serif;
     }
     .counter {
       position: fixed;
@@ -23,6 +31,25 @@
       font-size: 20px;
       background: #eee;
       padding: 20px;
+    }
+    .test-explanation {
+      width: 100%;
+      height: 100vh;
+      z-index: 10000;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .test-explanation > p {
+      width: 80%;
+      text-align: center;
+      line-height: 1.7;
+      font-size: 17px;
     }
     .container {
       display: grid;
@@ -69,7 +96,6 @@
       transform: translate(-50%, -50%);
       background-color: #fff;
       padding: 20px 50px;
-      font-weight: bold;
       z-index: 10;
       font-size: 18px;
     }
@@ -86,11 +112,40 @@
       height: 100px;
       border: 1px solid #000;
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
+    }
+    .arbic {
+      text-align: right;
+      /* padding-bottom: 500px; */
+    }
+    .en {
+      text-align: left;
+      margin-top: 50px !important;
     }
   </style>
   <body>
+    <div class="test-explanation">
+      <p class="arabic">
+        سيطلب منك اغلاق العين اليمنى و من ثم التركيز على الشكل الابيض ذو الحواف
+        السوداء موجود في منتصف الشاشة و سيظهر بعده 8 اشكال مختلفة بالشكل و اللون
+        لمدة قصيرة وستختفي ليظهر مانها مربعات<strong>
+          المطلوب منك الضغط في لوحة المفاتيح على المربع الذي يمثل المكان الذي
+          كان موجود فيه تكرار هذا الشكل</strong
+        >
+      </p>
+      <p class="en">
+        You will be asked to close the right eye and then focus on the white
+        shape with edges The black one is in the middle of the screen, and then
+        8 different shapes in shape and color will appear For a short time, it
+        will disappear, leaving squares appearing
+        <strong>
+          You are required to press on the keyboard on the square that
+          represents the place you are There was a repetition of this
+          form</strong
+        >
+      </p>
+    </div>
     <div class="counter"><span id="seconds"></span> Seconds</div>
     <div class="container">
       <div class="text">
@@ -108,15 +163,14 @@
       const svgs = document.querySelectorAll(".svgs");
       const randomShape = document.querySelector(".random-shape");
       const numbers = document.querySelector(".numbers");
-      // let direction = "right";
-      let levelTime = 0.2;
-      let time = 15000;
+      const explanation = document.querySelector(".test-explanation");
+
+      let levelTime = 0.28;
+      let time = 20000;
       let i = 1;
       let flag = true;
       let result = [];
       let pointsR = 0;
-
-      // const randomNumber = Math.floor(Math.random() * 8);
 
       const fillColors = [
         "#ffa041",
@@ -301,7 +355,11 @@
         generate();
         //gsap
         const tl = gsap.timeline();
-        tl.to(".text", { display: "none", duration: 3 })
+        tl.to(".test-explanation", {
+          display: "none",
+          duration: 5,
+        })
+          .to(".text", { display: "none", duration: 6 })
           .from(".shapes-container", { opacity: 1, duration: levelTime })
           .to(".shapes-container", {
             display: "none",
