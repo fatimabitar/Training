@@ -182,8 +182,33 @@
     .number-4 {
       background-color: #da3d25;
     }
+    .warning {
+      width: 100%;
+      height: 100vh;
+      z-index: 15000;
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: #fff;
+    }
+    .warning > p {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%);
+      font-size: 18px;
+    }
+    /* @media (max-width: 1500px) {
+      .warning {
+        display: block;
+      }
+    } */
   </style>
   <body>
+    <div class="warning">
+      <p>البرنامج التدريبي مخصص للشاشات بحجم 15.6 فقط</p>
+    </div>
     <div class="test-explanation">
       <p class="arabic">
         لدينا 7 دوائر متداخلة بالوان و احجام مختلفة , و كرة بيضاء تتحرك على
