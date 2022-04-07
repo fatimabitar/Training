@@ -9,6 +9,7 @@ let time = 15000;
 let i = 1;
 let flag = true;
 let result = [];
+let points = 0;
 
 // const randomNumber = Math.floor(Math.random() * 8);
 

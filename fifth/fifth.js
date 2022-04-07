@@ -11,7 +11,7 @@ const circle8 = document.querySelector(".path-8");
 
 const numbers = document.querySelectorAll(".number");
 const numbersContainer = document.querySelector(".numbers-container");
-let randomRounds = Math.floor(Math.random() * (10 - 5) + 5);
+let randomRounds = Math.floor(Math.random() * (8 - 5) + 5);
 
 let speed = 3;
 let interval = 2000;
