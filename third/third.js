@@ -129,14 +129,14 @@ const check = (movesNum, x, y) => {
           if (result.length < 1) {
             result.push(true);
             finalResult.add({ name: `${itemIndex}`, result: true });
-            calculateResult(finalResult);
+            // calculateResult(finalResult);
           }
           console.log("result is true.");
         } else {
           if (result.length < 1) {
             result.push(false);
             finalResult.add({ name: `${itemIndex}`, result: false });
-            calculateResult(finalResult);
+            // calculateResult(finalResult);
           }
           console.log("result is false.");
         }
@@ -151,9 +151,9 @@ const check = (movesNum, x, y) => {
   }
 };
 
-const calculateResult = (finalResult) => {
-  finalResult.map();
-};
+// const calculateResult = (finalResult) => {
+//   finalResult.map();
+// };
 
 window.addEventListener("load", () => {
   for (let i = 0; i < 20; i++) {
