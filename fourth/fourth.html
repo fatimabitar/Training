@@ -6,15 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fourth Test</title>
   </head>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: "Tajawal", sans-serif;
     }
     body {
       position: relative;
       overflow: hidden;
+    }
+    .test-explanation {
+      width: 100%;
+      height: 100vh;
+      z-index: 10000;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .test-explanation > p {
+      width: 80%;
+      text-align: center;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    .arbic {
+      text-align: right;
+    }
+    .en {
+      text-align: left;
+      margin-top: 50px !important;
     }
     .counter {
       position: fixed;
@@ -120,9 +154,27 @@
     }
   </style>
   <body>
+    <div class="test-explanation">
+      <p class="arabic">
+        لدينا 20 كرة بداخلها اسهم مختلفة بالحجم , كل سهم مكرر 5 مرات بأحجام
+        مختلفة, عند بدء الاختبار سيضيء أحد الأسهم باللون الأخضر,
+        <strong>
+          المطلوب منك الضغط بالفأرة على الخمسة تكرارات للسهم المضاء بالاخضر قبل
+          انتهاء الوقت المحدد.</strong
+        >
+      </p>
+      <p class="en">
+        We have 20 balls with arrows of different size inside, each arrow
+        repeated 5 times different, when you start the test one of the arrows
+        will light green,
+        <strong>
+          You are required to click with the mouse on the five repetitions of
+          the arrow lit up green before The time limit has expired.</strong
+        >
+      </p>
+    </div>
     <div class="counter"><span id="seconds"></span> Seconds</div>
     <div class="balls-container">
-      <!-- <button onclick="startTracking()">START</button>su -->
       <div class="balls"></div>
       <div class="arrows">
         <div class="arrow">
@@ -714,7 +766,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, 500);
+      }, 6500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -726,7 +778,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime + 500);
+      }, levelTime + 6500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -738,7 +790,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 2 + 500);
+      }, levelTime * 2 + 6500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -750,7 +802,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 3 + 500);
+      }, levelTime * 3 + 6500);
       setTimeout(() => {
         result1.map((item) => {
           if (item === true) {
@@ -775,6 +827,10 @@
         totalPoints = points1 + points2 + points3 + points4;
       }, levelTime * 4);
 
+      const tl = gsap.timeline();
+      tl.to(".test-explanation", 6, {
+        display: "none",
+      });
       window.addEventListener("load", () => {
         generate();
         for (let i = 0; i < 20; i++) {
