@@ -7,10 +7,45 @@
     <title>Fifth Test</title>
     <link rel="stylesheet" href="fifth.css" />
   </head>
+  \
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     * {
       margin: 0;
       padding: 0;
+      font-family: "Tajawal", sans-serif;
+    }
+    .test-explanation {
+      width: 100%;
+      height: 100vh;
+      z-index: 10000;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .test-explanation > p {
+      width: 80%;
+      text-align: center;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    .arbic {
+      text-align: right;
+    }
+    .en {
+      text-align: left;
+      margin-top: 50px !important;
     }
     body {
       overflow: hidden;
@@ -18,7 +53,7 @@
     }
     .circles-container {
       position: relative;
-      height: calc(100vh - 50px);
+      height: calc(100vh - 70px);
     }
 
     .circle {
@@ -119,6 +154,7 @@
 
     .numbers-container {
       height: 50px;
+      margin-bottom: 10px !important;
       display: flex;
       flex-direction: row-reverse;
       opacity: 0;
@@ -148,6 +184,25 @@
     }
   </style>
   <body>
+    <div class="test-explanation">
+      <p class="arabic">
+        لدينا 7 دوائر متداخلة بالوان و احجام مختلفة , و كرة بيضاء تتحرك على
+        مسارات هذه الدوائر,
+        <strong
+          >المطلوب تتبع حركة هذهالكرة على المسارات و من ثم الضغط على الرقم في
+          لوحة المفاتيح الذي يمثل لون المسار الذي اختفت عليه الكرة.</strong
+        >
+      </p>
+      <p class="en">
+        We have 7 overlapping circles of different colors and sizes, and a white
+        ball that moves on the paths of these circles,
+        <strong>
+          What is required to follow the movement of this ball on the tracks and
+          then press the number in The keyboard that represents the color of the
+          path on which the ball has disappeared.</strong
+        >
+      </p>
+    </div>
     <div class="wrapper">
       <div class="circles-container">
         <svg
@@ -413,22 +468,28 @@
           motionPath: ".path-8",
           repeat: -1,
         });
-        setInterval(() => {
-          setTimeout(() => {
-            if (i < randomRounds) {
-              const tl = gsap.timeline();
-              tl.to(".dot-1", { opacity: 0 })
-                .to(shuffledDots[i], {
-                  opacity: 1,
-                })
-                .to(shuffledDots[i], { opacity: 0, delay: 1 });
-            }
-            i++;
-          }, delay);
-        }, interval);
+        setTimeout(() => {
+          setInterval(() => {
+            setTimeout(() => {
+              if (i < randomRounds) {
+                const tl = gsap.timeline();
+                tl.to(".dot-1", { opacity: 0 })
+                  .to(shuffledDots[i], {
+                    opacity: 1,
+                  })
+                  .to(shuffledDots[i], { opacity: 0, delay: 1 });
+              }
+              i++;
+            }, delay);
+          }, interval);
+        }, 6000);
         setTimeout(() => {
           check();
-        }, totalTime + 3000);
+        }, totalTime + 9000);
+      });
+
+      gsap.to(".test-explanation", 6, {
+        display: "none",
       });
 
       const check = () => {
