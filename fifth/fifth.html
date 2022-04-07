@@ -7,6 +7,146 @@
     <title>Fifth Test</title>
     <link rel="stylesheet" href="fifth.css" />
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overflow: hidden;
+      background: #222;
+    }
+    .circles-container {
+      position: relative;
+      height: calc(100vh - 50px);
+    }
+
+    .circle {
+      position: absolute;
+    }
+
+    .circle-1 {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      position: relative;
+    }
+    .circle-2 {
+      left: 46%;
+      top: 32%;
+    }
+    .circle-3 {
+      left: 40%;
+      top: 32%;
+    }
+    .circle-4 {
+      left: 36%;
+      top: 32%;
+    }
+    .circle-5 {
+      left: 31%;
+      top: 25%;
+    }
+    .circle-6 {
+      left: 40%;
+      top: 25%;
+    }
+    .circle-7 {
+      left: 30%;
+      top: 15%;
+    }
+    .circle-8 {
+      left: 32%;
+      top: 13%;
+    }
+
+    .dot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background-color: #fff;
+    }
+    .dot-1 {
+      left: 46.2%;
+      top: 41.3%;
+    }
+    .dot-2 {
+      left: 45.5%;
+      top: 31%;
+      opacity: 0;
+    }
+    .dot-3 {
+      left: 39.5%;
+      top: 31%;
+      opacity: 0;
+    }
+    .dot-4 {
+      left: 35.5%;
+      top: 31%;
+      opacity: 0;
+    }
+    .dot-5 {
+      left: 30.5%;
+      top: 24%;
+      opacity: 0;
+    }
+    .dot-6 {
+      left: 39.5%;
+      top: 24%;
+      opacity: 0;
+    }
+    .dot-7 {
+      left: 29.5%;
+      top: 14%;
+      opacity: 0;
+    }
+    .dot-8 {
+      left: 31.4%;
+      top: 12%;
+      opacity: 0;
+    }
+
+    .numbers-container {
+      height: 50px;
+      display: flex;
+      flex-direction: row-reverse;
+      opacity: 0;
+    }
+    .number {
+      flex: 1;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 18px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .number-1 {
+      background-color: #3352cc;
+    }
+    .number-2 {
+      background-color: #d10f39;
+    }
+    .number-3 {
+      background-color: #1fe044;
+    }
+    .number-4 {
+      background-color: #da3d25;
+    }
+  </style>
   <body>
     <div class="wrapper">
       <div class="circles-container">
@@ -142,6 +282,187 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
-    <script src="fifth.js"></script>
+    <script>
+      gsap.registerPlugin(MotionPathPlugin);
+      const circles = document.querySelectorAll(".circle > path");
+      const circle1 = document.querySelector(".path-1");
+      const circle2 = document.querySelector(".path-2");
+      const circle3 = document.querySelector(".path-3");
+      const circle4 = document.querySelector(".path-4");
+      const circle5 = document.querySelector(".path-5");
+      const circle6 = document.querySelector(".path-6");
+      const circle7 = document.querySelector(".path-7");
+      const circle8 = document.querySelector(".path-8");
+
+      const numbers = document.querySelectorAll(".number");
+      const numbersContainer = document.querySelector(".numbers-container");
+      let randomRounds = Math.floor(Math.random() * (8 - 5) + 5);
+
+      /* Final Result is here */
+      /* Code in line 135 */
+      let lastPoints = 0;
+
+      let speed = 3;
+      let interval = 2000;
+      let totalTime = randomRounds * interval;
+      let delay = interval / 1000;
+
+      const fills = [
+        "rgb(218, 61, 37)",
+        "rgb(51, 82, 204)",
+        "rgb(218, 61, 37)",
+        "rgb(31, 224, 68)",
+        "rgb(51, 82, 204)",
+        "rgb(209, 15, 57)",
+        "rgb(51, 82, 204)",
+        "rgb(209, 15, 57)",
+      ];
+      const backFills = [
+        "rgb(218, 61, 37)",
+        "rgb(51, 82, 204)",
+        "rgb(209, 15, 57)",
+        "rgb(31, 224, 68)",
+      ];
+      const classes = [
+        ".path-1",
+        ".path-2",
+        ".path-3",
+        ".path-4",
+        ".path-5",
+        ".path-6",
+        ".path-7",
+        ".path-8",
+      ];
+      const dots = [
+        ".dot-1",
+        ".dot-2",
+        ".dot-3",
+        ".dot-4",
+        ".dot-5",
+        ".dot-6",
+        ".dot-7",
+        ".dot-8",
+      ];
+      let i = 0;
+      function shuffle(array) {
+        let currentIndex = array.length,
+          randomIndex;
+        while (currentIndex !== 0) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex],
+            array[currentIndex],
+          ];
+        }
+        return array;
+      }
+
+      const shuffledFill = shuffle(fills);
+      const shuffledClasses = shuffle(classes);
+      const shuffledDots = shuffle(dots);
+      const shuffledBack = shuffle(backFills);
+
+      for (let i = 0; i < 4; i++) {
+        numbers[i].style.backgroundColor = shuffledBack[i];
+      }
+
+      circles.forEach((circle) => {
+        circle.setAttribute("stroke", shuffledFill[i++]);
+      });
+
+      window.addEventListener("load", () => {
+        let i = 0;
+        gsap.to(".dot-1", {
+          duration: speed,
+          motionPath: ".path-1",
+          repeat: -1,
+        });
+        gsap.to(".dot-2", {
+          duration: speed,
+          motionPath: ".path-2",
+          repeat: -1,
+        });
+        gsap.to(".dot-3", {
+          duration: speed,
+          motionPath: ".path-3",
+          repeat: -1,
+        });
+        gsap.to(".dot-4", {
+          duration: speed,
+          motionPath: ".path-4",
+          repeat: -1,
+        });
+        gsap.to(".dot-5", {
+          duration: speed,
+          motionPath: ".path-5",
+          repeat: -1,
+        });
+        gsap.to(".dot-6", {
+          duration: speed,
+          motionPath: ".path-6",
+          repeat: -1,
+        });
+        gsap.to(".dot-7", {
+          duration: speed,
+          motionPath: ".path-7",
+          repeat: -1,
+        });
+        gsap.to(".dot-8", {
+          duration: speed,
+          motionPath: ".path-8",
+          repeat: -1,
+        });
+        setInterval(() => {
+          setTimeout(() => {
+            if (i < randomRounds) {
+              const tl = gsap.timeline();
+              tl.to(".dot-1", { opacity: 0 })
+                .to(shuffledDots[i], {
+                  opacity: 1,
+                })
+                .to(shuffledDots[i], { opacity: 0, delay: 1 });
+            }
+            i++;
+          }, delay);
+        }, interval);
+        setTimeout(() => {
+          check();
+        }, totalTime + 3000);
+      });
+
+      const check = () => {
+        let result = [];
+        numbersContainer.style.opacity = 1;
+        let lastDot = document.querySelector(shuffledDots[randomRounds - 1]);
+        let lastClass = lastDot.getAttribute("class");
+        let lastClassNum = lastClass.charAt(lastClass.length - 1);
+        let pathColor = document
+          .querySelector(`.path-${lastClassNum}`)
+          .getAttribute("stroke");
+
+        window.addEventListener("keydown", (e) => {
+          key = e.key;
+          if (key < 5) {
+            let numberContainer = numbers[key - 1];
+            let style = window.getComputedStyle(numberContainer);
+            let numberColor = style.getPropertyValue("background-color");
+            if (pathColor === numberColor) {
+              if (result.length < 1) {
+                result.push(true);
+                //Last points
+                lastPoints += 1;
+              }
+            } else {
+              if (result.length < 1) {
+                result.push(false);
+              }
+            }
+            console.log(result);
+          }
+        });
+        return lastPoints;
+      };
+    </script>
   </body>
 </html>
