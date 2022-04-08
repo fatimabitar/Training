@@ -213,8 +213,8 @@
         لدينا 7 دوائر متداخلة بالوان و احجام مختلفة , و كرة بيضاء تتحرك على
         مسارات هذه الدوائر,
         <strong
-          >المطلوب تتبع حركة هذهالكرة على المسارات و من ثم الضغط على الرقم في
-          لوحة المفاتيح الذي يمثل لون المسار الذي اختفت عليه الكرة.</strong
+          >المطلوب تتبع حركة هذه الكرة على المسارات و من ثم الضغط على الرقم في
+          لوحة المفاتيح الذي يمثل لون المسار الذي اختفت عليه الكرة</strong
         >
       </p>
       <p class="en">
@@ -381,8 +381,8 @@
       /* Code in line 135 */
       let lastPoints = 0;
 
-      let speed = 3;
-      let interval = 2000;
+      let speed = 2;
+      let interval = 1000;
       let totalTime = randomRounds * interval;
       let delay = interval / 1000;
 
@@ -501,7 +501,7 @@
                   .to(shuffledDots[i], {
                     opacity: 1,
                   })
-                  .to(shuffledDots[i], { opacity: 0, delay: 1 });
+                  .to(shuffledDots[i], { opacity: 0, delay: 0.1 });
               }
               i++;
             }, delay);
@@ -509,7 +509,7 @@
         }, 6000);
         setTimeout(() => {
           check();
-        }, totalTime + 9000);
+        }, totalTime + 8000);
       });
 
       gsap.to(".test-explanation", 6, {
