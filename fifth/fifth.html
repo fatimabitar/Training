@@ -516,6 +516,10 @@
         display: "none",
       });
 
+      setTimeout(() => {
+        window.location = "../questions/questions.html";
+      }, totalTime + 15000);
+
       const check = () => {
         let result = [];
         numbersContainer.style.opacity = 1;
