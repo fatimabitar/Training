@@ -154,7 +154,7 @@
       <p class="arabic">
         سيطلب منك ابقاء العينين مفتوحتين و من ثم التركيز على الشكل الابيض ذو
         الحواف السوداء موجود في منتصف الشاشة و سيظهر بعده 8 اشكال مختلفة بالشكل
-        و اللون لمدة قصيرة وستختفي ليظهر مانها مربعات<strong>
+        و اللون لمدة قصيرة وستختفي ليظهر مكانها مربعات<strong>
           المطلوب منك الضغط في لوحة المفاتيح على المربع الذي يمثل المكان الذي
           كان موجود فيه تكرار هذا الشكل</strong
         >
@@ -173,7 +173,6 @@
     </div>
     <div class="counter"><span id="seconds"></span> Seconds</div>
     <div class="container">
-      <div class="text"></div>
       <div class="random-shape"></div>
       <div class="shapes-container"></div>
       <div class="numbers"></div>
@@ -374,15 +373,14 @@
       };
 
       window.addEventListener("load", () => {
-        generateText("both");
+        // generateText("both");
         generate();
         //gsap
         const tl = gsap.timeline();
         tl.to(".test-explanation", {
           display: "none",
-          duration: 10,
+          duration: 15,
         })
-          .to(".text", { display: "none", duration: 6 })
           .from(".shapes-container", { opacity: 1, duration: levelTime })
           .to(".shapes-container", {
             display: "none",

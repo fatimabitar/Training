@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Training System</title>
+    <title>Warm Up</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,105 +17,78 @@
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
-    html {
+    body {
       font-family: "Tajawal", sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      direction: rtl;
     }
-    main {
+    .text-wrapper {
+      height: 50vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 100px;
-    }
-    .tests-wrapper {
-      width: 100%;
-      height: 50%;
-      display: flex;
-      flex-direction: row-reverse;
       justify-content: space-evenly;
       align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .test {
-      width: calc(100% / 3);
-      height: 150px;
-      text-align: center;
-      margin-right: 10px;
-      margin-bottom: 30px;
-      display: flex;
       flex-direction: column;
+    }
+    .text-wrapper > h1 {
+      color: #777;
+    }
+    .text-wrapper > p {
+      padding: 0 50px;
+      color: #555;
+    }
+    .btn {
+      border: none;
+      padding: 5px 15px;
+      font-family: "Tajawal", sans-serif;
+      font-size: 18px;
+      background: #f5dfeb;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-left: 10px;
+      font-weight: 500;
+      color: #555;
+    }
+    .img-wrapper {
+      height: 50vh;
+      display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1),
-        -1px -0px 3px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
-      -o-border-radius: 5px;
     }
-    .test a {
-      text-decoration: none;
-      font-size: 20px;
-      color: #666;
-      font-weight: bold;
+    img {
+      width: 40%;
+      height: auto;
+      margin-bottom: 20px;
     }
-    p {
-      color: #999;
-    }
-    .warning {
-      width: 100%;
-      height: 100vh;
-      z-index: 15000;
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      background: #fff;
-    }
-    .warning > p {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%);
-      font-size: 18px;
-    }
-    /* @media (max-width: 1500px) {
-      .warning {
-        display: block;
-      }
-    } */
   </style>
   <body>
-    <div class="warning">
-      <p>البرنامج التدريبي مخصص للشاشات بحجم 15.6 فقط</p>
-    </div>
     <main>
-      <div class="tests-wrapper">
-        <div class="test">
-          <a href="first/firstTest.html">التمرين الأول</a>
-          <p>تمارين الرؤية البصرية المحيطية الأفقية</p>
+      <div class="container">
+        <div class="text-wrapper">
+          <h1 class="title">الإحماء</h1>
+          <p>
+            تهيئة عضلات الرقبة و الذراعين و الظهر بأداء عدة تمارين من الثبات
+            تترواح مدتها من 4-5 دقيقة كون المتطلبات البصرية للبرنامج التدريبي قد
+            تتجاوز القدرات البصرية للفرد عند أداء التمارين إذ يمكن أن تؤدي أوضاع
+            جسم الحارسات (الجلوس و الوقوف) إلى توترات عضلية مختلفة فس عضلات
+            الرقبة و الكتف أو الظهر. القيام بلإحماء خاصة للعين و عضلاتها 2-3
+            دقائق و هو عبارة عن ملاحقة حركة إصبع اليد امام كل عين على حدا ثم
+            كلتا العينين بحيث تكون حركة الإصبع (تقريب و تبعيد باتجاه كل المحاور
+            , التحريك للأعلى ثم للخارج, أعلى للداخل , أسفل ثم للداخل , أسفل ثم
+            للخارج , نصف قوس للداخل و الأعلى ثم للأسفل).
+          </p>
+          <div class="btn-container">
+            <a href="first/firstTest.html" class="btn">البدء بالاختبار</a>
+            <a href="tests.html" class="btn">تصفح الاختبارات</a>
+          </div>
         </div>
-        <div class="test">
-          <a href="second/second.html">التمرين الثاني</a>
-          <p>تمارين التتبع البصري</p>
-        </div>
-        <div class="test">
-          <a href="third/third.html">التمرين الثالث</a>
-          <p>تمارين التتبع البصري</p>
-        </div>
-        <div class="test">
-          <a href="fourth/fourth.html"> التمرين الرابع </a>
-          <p>تمارين القدرة البصرية المتحركة</p>
-          <p></p>
-        </div>
-        <div class="test">
-          <a href="fifth/fifth.html">التمرين الخامس</a>
-          <p>تمارين القدرة البصرية المتحركة</p>
-        </div>
-        <div class="test">
-          <a href="questions/questions.html">الفيديو و الاسئلة </a>
+        <div class="img-wrapper">
+          <img
+            src="https://res.cloudinary.com/du9veyxbv/image/upload/v1649361247/vecteezy_fitness-girl-by-warming-up-the-body-before-playing-sports_5639021_agjbi6.jpg"
+            alt=""
+          />
         </div>
       </div>
     </main>
