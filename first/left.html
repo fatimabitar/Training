@@ -189,7 +189,7 @@
       const randomShape = document.querySelector(".random-shape");
       const numbers = document.querySelector(".numbers");
       // let direction = "right";
-      let time = 20000;
+      let time = 28000;
       let levelTime = 0.28;
       let i = 1;
       let flag = true;
@@ -380,7 +380,7 @@
         const tl = gsap.timeline();
         tl.to(".test-explanation", {
           display: "none",
-          duration: 5,
+          duration: 10,
         })
           .to(".text", { display: "none", duration: 6 })
           .from(".shapes-container", { opacity: 1, duration: levelTime })

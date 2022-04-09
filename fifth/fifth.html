@@ -506,19 +506,19 @@
               i++;
             }, delay);
           }, interval);
-        }, 6000);
+        }, 10000);
         setTimeout(() => {
           check();
-        }, totalTime + 8000);
+        }, totalTime + 12000);
       });
 
-      gsap.to(".test-explanation", 6, {
+      gsap.to(".test-explanation", 10, {
         display: "none",
       });
 
       setTimeout(() => {
         window.location = "../questions/questions.html";
-      }, totalTime + 15000);
+      }, totalTime + 20000);
 
       const check = () => {
         let result = [];

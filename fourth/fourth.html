@@ -791,7 +791,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, 6500);
+      }, 10500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -803,7 +803,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime + 6500);
+      }, levelTime + 10500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -815,7 +815,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 2 + 6500);
+      }, levelTime * 2 + 10500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -827,7 +827,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 3 + 6500);
+      }, levelTime * 3 + 10500);
       setTimeout(() => {
         result1.map((item) => {
           if (item === true) {
@@ -854,7 +854,7 @@
       }, levelTime * 4);
 
       const tl = gsap.timeline();
-      tl.to(".test-explanation", 6, {
+      tl.to(".test-explanation", 10, {
         display: "none",
       });
       window.addEventListener("load", () => {

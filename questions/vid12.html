@@ -97,6 +97,9 @@
     .question-3 > .options {
       width: 50%;
     }
+    .question-4 > .options {
+      width: 50%;
+    }
     .input {
       position: absolute;
       right: 5%;
@@ -224,6 +227,22 @@
         </div>
         <div class="counter"><span id="seconds-2"></span> Seconds</div>
       </div>
+      <div class="question question-4">
+        <p class="text">ما هو المسار الذي سلكته الكرة باتجاه المرمى؟</p>
+        <div class="options">
+          <div class="option option-1">1-اليمين</div>
+          <div class="option option-2">2- اليسار</div>
+          <div class="option option-2">3- الأعلى</div>
+          <div class="option option-2">4- الأسفل</div>
+        </div>
+        <div class="input input-4">
+          <form>
+            <input type="text" placeholder="ادخل اجابتك" />
+            <button class="submit-4">Ok</button>
+          </form>
+        </div>
+        <div class="counter"><span id="seconds-2"></span> Seconds</div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -232,18 +251,21 @@
       let question1 = document.querySelector(".question-1");
       let question2 = document.querySelector(".question-2");
       let question3 = document.querySelector(".question-3");
+      let question4 = document.querySelector(".question-4");
 
       const submit1 = document.querySelector(".submit-1");
       const submit2 = document.querySelector(".submit-2");
       const submit3 = document.querySelector(".submit-3");
+      const submit4 = document.querySelector(".submit-4");
 
       const inp1 = document.querySelector(".input-1 input");
       const inp2 = document.querySelector(".input-2 input");
       const inp3 = document.querySelector(".input-3 input");
+      const inp4 = document.querySelector(".input-4 input");
 
       const explanation = document.querySelector(".test-explanation");
 
-      const answers = ["1", "2", "1"];
+      const answers = ["1", "2", "1", "1"];
 
       let points = 0;
 
@@ -299,6 +321,21 @@
         }, 1000);
       }, 34000);
 
+      setTimeout(() => {
+        question4.style.display = "block";
+        inp4.focus();
+        let timeleft2 = 11;
+        let downloadTimer2 = setInterval(function () {
+          timeleft2--;
+
+          document.querySelector("#seconds-2").textContent = timeleft2;
+          if (timeleft2 <= 0) {
+            clearInterval(downloadTimer2);
+            question3.style.display = "none";
+          }
+        }, 1000);
+      }, 45000);
+
       submit1.addEventListener("click", (e) => {
         e.preventDefault();
         let in1 = inp1.value;
@@ -306,6 +343,7 @@
           points += 1;
           document.querySelector(".input-1 input").disabled = true;
         } else {
+          document.querySelector(".input-1 input").disabled = true;
         }
       });
 
@@ -314,6 +352,8 @@
         let in2 = inp2.value;
         if (in2 === answers[1]) {
           points += 1;
+          document.querySelector(".input-2 input").disabled = true;
+        } else {
           document.querySelector(".input-2 input").disabled = true;
         }
       });
@@ -324,6 +364,18 @@
         if (in3 === answers[2]) {
           points += 1;
           document.querySelector(".input-3 input").disabled = true;
+        } else {
+          document.querySelector(".input-3 input").disabled = true;
+        }
+      });
+      submit4.addEventListener("click", (e) => {
+        e.preventDefault();
+        let in4 = inp4.value;
+        if (in4 === answers[3]) {
+          points += 1;
+          document.querySelector(".input-4 input").disabled = true;
+        } else {
+          document.querySelector(".input-4 input").disabled = true;
         }
       });
     </script>
