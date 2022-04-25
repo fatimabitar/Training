@@ -53,7 +53,7 @@
     .counter {
       position: fixed;
       left: 0%;
-      top: 5%;
+      bottom: 5%;
       font-weight: bold;
       font-size: 20px;
       background: #fff;
@@ -316,7 +316,7 @@
       //Random Balls movement
       function makeNewPosition() {
         const w = balls.getBoundingClientRect().width - 50;
-        const h = 550;
+        const h = ballsContainer.getBoundingClientRect().height - 200;
         const nh = Math.floor(Math.random() * h);
         const nw = Math.floor(Math.random() * w);
         return [nh, nw];
@@ -791,7 +791,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, 10500);
+      }, 30500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -803,7 +803,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime + 10500);
+      }, levelTime + 30500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -815,7 +815,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 2 + 10500);
+      }, levelTime * 2 + 30500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -827,7 +827,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 3 + 10500);
+      }, levelTime * 3 + 30500);
       setTimeout(() => {
         result1.map((item) => {
           if (item === true) {
@@ -854,7 +854,7 @@
       }, levelTime * 4);
 
       const tl = gsap.timeline();
-      tl.to(".test-explanation", 10, {
+      tl.to(".test-explanation", 30, {
         display: "none",
       });
       window.addEventListener("load", () => {

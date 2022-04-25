@@ -191,7 +191,7 @@
       const explanation = document.querySelector(".test-explanation");
 
       let levelTime = 0.28;
-      let time = 28000;
+      let time = 41000;
       let i = 1;
       let flag = true;
       let result = [];
@@ -376,13 +376,12 @@
       };
 
       window.addEventListener("load", () => {
-        // generateText("right");
         generate();
         //gsap
         const tl = gsap.timeline();
         tl.to(".test-explanation", {
           display: "none",
-          duration: 15,
+          duration: 30,
         })
           .from(".shapes-container", { opacity: 1, duration: levelTime })
           .to(".shapes-container", {

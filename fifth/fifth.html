@@ -179,7 +179,7 @@
       background-color: #1fe044;
     }
     .number-4 {
-      background-color: #da3d25;
+      background-color: rgb(122, 85, 28);
     }
     .warning {
       width: 100%;
@@ -387,9 +387,9 @@
       let delay = interval / 1000;
 
       const fills = [
-        "rgb(218, 61, 37)",
+        "rgb(122, 85, 28)",
         "rgb(51, 82, 204)",
-        "rgb(218, 61, 37)",
+        "rgb(122, 85, 28)",
         "rgb(31, 224, 68)",
         "rgb(51, 82, 204)",
         "rgb(209, 15, 57)",
@@ -397,7 +397,7 @@
         "rgb(209, 15, 57)",
       ];
       const backFills = [
-        "rgb(218, 61, 37)",
+        "rgb(122, 85, 28)",
         "rgb(51, 82, 204)",
         "rgb(209, 15, 57)",
         "rgb(31, 224, 68)",
@@ -506,19 +506,19 @@
               i++;
             }, delay);
           }, interval);
-        }, 10000);
+        }, 30000);
         setTimeout(() => {
           check();
-        }, totalTime + 12000);
+        }, totalTime + 32000);
       });
 
-      gsap.to(".test-explanation", 12, {
+      gsap.to(".test-explanation", 30, {
         display: "none",
       });
 
       setTimeout(() => {
         window.location = "../questions/questions.html";
-      }, totalTime + 22000);
+      }, totalTime + 44000);
 
       const check = () => {
         let result = [];

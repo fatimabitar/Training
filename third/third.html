@@ -203,7 +203,7 @@
 
       //Random Balls movement
       function makeNewPosition() {
-        const h = 600;
+        const h = ballsContainer.getBoundingClientRect().height;
         const w = ballsContainer.getBoundingClientRect().width - 50;
         const nh = Math.floor(Math.random() * h);
         const nw = Math.floor(Math.random() * w);
@@ -239,7 +239,7 @@
         return x;
       }
       function makeNewY() {
-        const h = 600;
+        const h = ballsContainer.getBoundingClientRect().height;
         const nh = Math.floor(Math.random() * h);
         return nh;
       }
@@ -330,7 +330,7 @@
       };
 
       const tl = gsap.timeline();
-      tl.to(".test-explanation", 15, {
+      tl.to(".test-explanation", 30, {
         display: "none",
       });
       window.addEventListener("load", () => {
@@ -343,12 +343,12 @@
           balls.appendChild(ball);
           span.innerHTML = i + 1;
         }
-        tracking(itemIndex);
         setTimeout(() => {
           for (let i = 0; i < 20; i++) {
             animateDiv(`.ball-${i}`);
+            tracking(itemIndex);
           }
-        }, 15000);
+        }, 30000);
       });
     </script>
   </body>
