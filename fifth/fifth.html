@@ -378,10 +378,10 @@
       let randomRounds = Math.floor(Math.random() * (8 - 5) + 5);
 
       /* Final Result is here */
-      /* Code in line 135 */
       let lastPoints = 0;
 
       let speed = 2;
+      let waitingTime = 30000;
       let interval = 1000;
       let totalTime = randomRounds * interval;
       let delay = interval / 1000;
@@ -506,19 +506,19 @@
               i++;
             }, delay);
           }, interval);
-        }, 30000);
+        }, waitingTime);
         setTimeout(() => {
           check();
-        }, totalTime + 32000);
+        }, totalTime + waitingTime + 2000);
       });
 
-      gsap.to(".test-explanation", 30, {
+      gsap.to(".test-explanation", waitingTime / 1000, {
         display: "none",
       });
 
       setTimeout(() => {
         window.location = "../questions/questions.html";
-      }, totalTime + 44000);
+      }, totalTime + waitingTime + 10000);
 
       const check = () => {
         let result = [];

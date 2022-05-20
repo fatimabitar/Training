@@ -167,21 +167,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
       //Global Values
-      let itemIndex = 0;
-      let duration = 1500;
-      let randomDuration = 1000;
+      // let itemIndex = 0;
+      let duration = 1200;
+      let randomDuration = 1100;
+      let expectedTime = 11 * randomDuration;
+      let waitingTime = 30000;
       const ballsContainer = document.querySelector(".balls-container");
       const balls = document.querySelector(".balls");
 
-      const arrowUp = document.querySelector(".arrow-up");
-      const arrowDown = document.querySelector(".arrow-down");
-      const arrowLeft = document.querySelector(".arrow-left");
-      const arrowRight = document.querySelector(".arrow-right");
       let xMoves = [];
       let yMoves = [];
       let finalResult = new Set();
 
-      /* Code in line 156 */
       let thirdPoints = 0;
       let newArray = Array.from(finalResult);
 
@@ -224,7 +221,7 @@
         const nw = Math.floor(Math.random() * w);
         return nw;
       }
-      function animateX(myclass, i, movesNum) {
+      function animateX(myclass, i, movesNum, itemIndex) {
         let x = makeNewX();
         xMoves.push(x);
         let x1 = xMoves[xMoves.length - 1];
@@ -232,7 +229,7 @@
         let xTotal = x1 - x2;
         $(myclass).animate({ left: x }, duration, function () {
           if (i === movesNum) {
-            check(movesNum, xTotal, 0);
+            check(movesNum, xTotal, 0, itemIndex);
           }
         });
         return x;
@@ -242,7 +239,7 @@
         const nh = Math.floor(Math.random() * h);
         return nh;
       }
-      function animateY(myclass, i, movesNum) {
+      function animateY(myclass, i, movesNum, itemIndex) {
         let y = makeNewY();
         yMoves.push(y);
         let y1 = yMoves[yMoves.length - 1];
@@ -250,7 +247,7 @@
         let yTotal = y1 - y2;
         $(myclass).animate({ top: y }, duration, function () {
           if (i === movesNum) {
-            check(movesNum, 0, yTotal);
+            check(movesNum, 0, yTotal, itemIndex);
           }
         });
         return y;
@@ -259,18 +256,18 @@
       //Tracking Function
       const tracking = (itemIndex) => {
         $(animateDiv(`.ball-${itemIndex}`)).stop();
-        let movesNum = Math.floor(Math.random() * (15 - 10) + 10);
+        let movesNum = Math.floor(Math.random() * (11 - 9) + 9);
         for (let i = 0; i <= movesNum; i++) {
           if (i % 2 === 0) {
-            animateX(`.ball-${itemIndex}`, i, movesNum);
+            animateX(`.ball-${itemIndex}`, i, movesNum, itemIndex);
           } else {
-            animateY(`.ball-${itemIndex}`, i, movesNum);
+            animateY(`.ball-${itemIndex}`, i, movesNum, itemIndex);
           }
         }
-        return;
+        return true;
       };
 
-      const check = (movesNum, x, y) => {
+      const check = (movesNum, x, y, itemIndex) => {
         let result = [];
         const el = document.querySelector(`.ball-${itemIndex} span`);
         el.style.opacity = 0;
@@ -312,24 +309,11 @@
               return;
             });
           }
-          itemIndex++;
-          if (itemIndex != 20) {
-            tracking(itemIndex);
-          }
-          if (itemIndex === 19) {
-            let newArray = Array.from(finalResult);
-            newArray.map((item) => {
-              if (item.result === true) {
-                thirdPoints += 1;
-              }
-            });
-            // window.location = "../fourth/fourth.html";
-          }
         }
       };
 
       const tl = gsap.timeline();
-      tl.to(".test-explanation", 30, {
+      tl.to(".test-explanation", waitingTime / 1000, {
         display: "none",
       });
       window.addEventListener("load", () => {
@@ -345,10 +329,81 @@
         setTimeout(() => {
           for (let i = 0; i < 20; i++) {
             animateDiv(`.ball-${i}`);
-            tracking(itemIndex);
           }
-        }, 30000);
+        }, waitingTime);
       });
+      setTimeout(() => {
+        tracking(0);
+      }, waitingTime + 1000);
+      setTimeout(() => {
+        tracking(1);
+      }, expectedTime + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(2);
+      }, expectedTime * 2 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(3);
+      }, expectedTime * 3 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(4);
+      }, expectedTime * 4 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(5);
+      }, expectedTime * 5 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(6);
+      }, expectedTime * 6 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(7);
+      }, expectedTime * 7 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(8);
+      }, expectedTime * 8 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(9);
+      }, expectedTime * 9 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(10);
+      }, expectedTime * 10 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(11);
+      }, expectedTime * 11 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(12);
+      }, expectedTime * 12 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(13);
+      }, expectedTime * 13 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(14);
+      }, expectedTime * 14 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(15);
+      }, expectedTime * 15 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(16);
+      }, expectedTime * 16 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(17);
+      }, expectedTime * 17 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(18);
+      }, expectedTime * 18 + waitingTime + 1000);
+      setTimeout(() => {
+        tracking(19);
+      }, expectedTime * 19 + waitingTime + 1000);
+      setTimeout(() => {
+        let newArray = Array.from(finalResult);
+        newArray.map((item) => {
+          if (item.result === true) {
+            thirdPoints += 1;
+          }
+        });
+        console.log(`thirdPoints`, thirdPoints);
+      }, expectedTime * 21 + waitingTime + 1000);
+      setTimeout(() => {
+        window.location = "../fourth/fourth.html";
+      }, expectedTime * 24 + waitingTime + 1000);
     </script>
   </body>
 </html>

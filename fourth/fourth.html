@@ -226,8 +226,9 @@
       //Global Values
       const balls = document.querySelector(".balls");
       const ballsContainer = document.querySelector(".balls-container");
-      let duration = 4000; /* Balls Speed */
+      let duration = 3200; /* Balls Speed */
       let levelTime = 30000;
+      let waitingTime = 30000;
 
       /* Total Points - code in line 618 */
       let totalPoints = 0;
@@ -759,7 +760,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, 30500);
+      }, waitingTime + 500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -771,7 +772,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime + 30500);
+      }, levelTime + waitingTime + 500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -783,7 +784,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 2 + 30500);
+      }, levelTime * 2 + waitingTime + 500);
       setTimeout(() => {
         restart();
         let [arrowsList, currentArrow, nextArrowNode] =
@@ -795,7 +796,7 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 3 + 30500);
+      }, levelTime * 3 + waitingTime + 500);
       setTimeout(() => {
         result1.map((item) => {
           if (item === true) {
@@ -819,11 +820,13 @@
         });
         totalPoints = points1 + points2 + points3 + points4;
         console.log(`totalPoints`, totalPoints);
-        // window.location = "../fifth/fifth.html";
+      }, levelTime * 4 + 5000);
+      setTimeout(() => {
+        window.location = "../fifth/fifth.html";
       }, levelTime * 5);
 
       const tl = gsap.timeline();
-      tl.to(".test-explanation", 30, {
+      tl.to(".test-explanation", 1, {
         display: "none",
       });
       window.addEventListener("load", () => {
