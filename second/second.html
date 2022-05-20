@@ -179,7 +179,7 @@
     <script>
       //Global Values
       let itemIndex = 0;
-      let duration = 1200;
+      let duration = 750;
       let transition = duration / 1000;
       const wrapper = document.querySelectorAll(".outer-wrapper");
       const balls = document.querySelector(".balls-container");
@@ -194,7 +194,6 @@
       let dCount = 0;
 
       let finalResult = new Set();
-      /* code in line 124 */
       let secondPoints = 0;
       let newArray = Array.from(finalResult);
 
@@ -236,7 +235,6 @@
             let xTotal = x1 - x2;
             console.log(xTotal);
             check(xTotal);
-            // console.log(aMoves);
             aMoves = [];
           }
         });
@@ -359,7 +357,6 @@
           ball.style.background = colors[i];
           ball.style.border = `3px solid ${colors[i]}`;
         }
-        // wrapper.style.WebkitTransition = `transform ${transition}s linear`;
         wrapper.forEach((item) => {
           item.style.WebkitTransition = `transform ${transition}s linear`;
         });

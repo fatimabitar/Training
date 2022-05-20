@@ -168,8 +168,8 @@
     <script>
       //Global Values
       let itemIndex = 0;
-      let duration = 1000;
-      let randomDuration = 1500;
+      let duration = 1500;
+      let randomDuration = 1000;
       const ballsContainer = document.querySelector(".balls-container");
       const balls = document.querySelector(".balls");
 
@@ -233,7 +233,6 @@
         $(myclass).animate({ left: x }, duration, function () {
           if (i === movesNum) {
             check(movesNum, xTotal, 0);
-            console.log(xTotal);
           }
         });
         return x;
@@ -324,7 +323,7 @@
                 thirdPoints += 1;
               }
             });
-            window.location = "../fourth/fourth.html";
+            // window.location = "../fourth/fourth.html";
           }
         }
       };
