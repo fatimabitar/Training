@@ -772,6 +772,12 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
+        result1.map((item) => {
+          if (item === true) {
+            points1 += 1;
+          }
+        });
+        console.log(`points1`, points1);
       }, levelTime + waitingTime + 500);
       setTimeout(() => {
         restart();
@@ -784,6 +790,12 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
+        result2.map((item) => {
+          if (item === true) {
+            points2 += 1;
+          }
+        });
+        console.log(`points2`, points2);
       }, levelTime * 2 + waitingTime + 500);
       setTimeout(() => {
         restart();
@@ -796,37 +808,44 @@
           document.querySelector("#seconds").textContent = timeleft;
           if (timeleft <= 0) clearInterval(downloadTimer);
         }, 1000);
-      }, levelTime * 3 + waitingTime + 500);
-      setTimeout(() => {
-        result1.map((item) => {
-          if (item === true) {
-            points1 += 1;
-          }
-        });
-        result2.map((item) => {
-          if (item === true) {
-            points2 += 1;
-          }
-        });
         result3.map((item) => {
           if (item === true) {
             points3 += 1;
           }
         });
+        console.log(`points3`, points3);
+      }, levelTime * 3 + waitingTime + 500);
+      setTimeout(() => {
+        // result1.map((item) => {
+        //   if (item === true) {
+        //     points1 += 1;
+        //   }
+        // });
+        // result2.map((item) => {
+        //   if (item === true) {
+        //     points2 += 1;
+        //   }
+        // });
+        // result3.map((item) => {
+        //   if (item === true) {
+        //     points3 += 1;
+        //   }
+        // });
         result4.map((item) => {
           if (item === true) {
             points4 += 1;
           }
         });
+        console.log(`points4`, points4);
         totalPoints = points1 + points2 + points3 + points4;
         console.log(`totalPoints`, totalPoints);
-      }, levelTime * 4 + 5000);
+      }, levelTime * 4 + waitingTime + 500);
       setTimeout(() => {
         window.location = "../fifth/fifth.html";
-      }, levelTime * 5);
+      }, levelTime * 5 + waitingTime + 500);
 
       const tl = gsap.timeline();
-      tl.to(".test-explanation", 1, {
+      tl.to(".test-explanation", waitingTime / 1000, {
         display: "none",
       });
       window.addEventListener("load", () => {
