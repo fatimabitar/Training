@@ -184,8 +184,9 @@
       const svgs = document.querySelectorAll(".svgs");
       const randomShape = document.querySelector(".random-shape");
       const numbers = document.querySelector(".numbers");
-      // let direction = "right";
-      let time = 41000;
+
+      let waitingTime = 45000;
+      let time = waitingTime + 11000;
       let levelTime = 0.28;
       let i = 1;
       let flag = true;
@@ -380,7 +381,7 @@
         const tl = gsap.timeline();
         tl.to(".test-explanation", {
           display: "none",
-          duration: 30,
+          duration: waitingTime / 1000,
         })
           .from(".shapes-container", { opacity: 1, duration: levelTime })
           .to(".shapes-container", {

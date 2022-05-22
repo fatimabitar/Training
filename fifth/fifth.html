@@ -61,41 +61,37 @@
 
     .circle-1 {
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
+      top: 40%;
+      transform: translate(-50%, -40%);
       position: relative;
     }
     .circle-2 {
       left: 46%;
-      top: 32%;
+      top: 22%;
     }
     .circle-3 {
       left: 40%;
-      top: 32%;
+      top: 22%;
     }
     .circle-4 {
       left: 36%;
-      top: 32%;
+      top: 22%;
     }
     .circle-5 {
       left: 31%;
-      top: 25%;
+      top: 15%;
     }
     .circle-6 {
       left: 40%;
-      top: 25%;
+      top: 15%;
     }
     .circle-7 {
       left: 30%;
-      top: 15%;
+      top: 5%;
     }
     .circle-8 {
       left: 32%;
-      top: 13%;
+      top: 3%;
     }
 
     .dot {
@@ -112,42 +108,44 @@
       background-color: #fff;
     }
     .dot-1 {
-      left: 46.2%;
-      top: 41.3%;
+      /* left: 45.4%;
+      top: 31.7%; */
+      left: 46.5%;
+      top: 33.4%;
     }
     .dot-2 {
       left: 45.5%;
-      top: 31%;
+      top: 21%;
       opacity: 0;
     }
     .dot-3 {
       left: 39.5%;
-      top: 31%;
+      top: 21%;
       opacity: 0;
     }
     .dot-4 {
       left: 35.5%;
-      top: 31%;
+      top: 21%;
       opacity: 0;
     }
     .dot-5 {
       left: 30.5%;
-      top: 24%;
+      top: 14%;
       opacity: 0;
     }
     .dot-6 {
       left: 39.5%;
-      top: 24%;
+      top: 14%;
       opacity: 0;
     }
     .dot-7 {
       left: 29.5%;
-      top: 14%;
+      top: 4%;
       opacity: 0;
     }
     .dot-8 {
       left: 31.4%;
-      top: 12%;
+      top: 2%;
       opacity: 0;
     }
 
@@ -203,6 +201,12 @@
         display: block;
       }
     } */
+    @media (max-width: 1400px) {
+      .dot-1 {
+        left: 46.2%;
+        top: 33.3%;
+      }
+    }
   </style>
   <body>
     <div class="warning">
@@ -231,7 +235,22 @@
       <div class="circles-container">
         <svg
           class="circle circle-1"
-          width="99"
+          width="91"
+          height="93"
+          viewBox="0 0 91 93"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="path-1"
+            d="M90.5 46.5C90.5 71.9154 70.3426 92.5 45.5 92.5C20.6574 92.5 0.5 71.9154 0.5 46.5C0.5 21.0846 20.6574 0.5 45.5 0.5C70.3426 0.5 90.5 21.0846 90.5 46.5Z"
+            stroke-width="2"
+          />
+        </svg>
+
+        <!-- <svg
+          class="circle circle-1"
+          width="100"
           height="101"
           viewBox="0 0 99 101"
           fill="none"
@@ -242,7 +261,7 @@
             d="M97.5 50.5C97.5 77.5904 75.9815 99.5 49.5 99.5C23.0185 99.5 1.5 77.5904 1.5 50.5C1.5 23.4096 23.0185 1.5 49.5 1.5C75.9815 1.5 97.5 23.4096 97.5 50.5Z"
             stroke-width="2"
           />
-        </svg>
+        </svg> -->
         <svg
           class="circle circle-2"
           width="241"
@@ -517,7 +536,7 @@
       });
 
       setTimeout(() => {
-        window.location = "../questions/redirect.html";
+        // window.location = "../questions/redirect.html";
       }, totalTime + waitingTime + 10000);
 
       const check = () => {
