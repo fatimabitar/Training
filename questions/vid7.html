@@ -267,6 +267,22 @@
 
       let points = 0;
 
+      const pages = ["vid1.html", "vid5.html", "vid11.html"];
+      function shuffle(array) {
+        let currentIndex = array.length,
+          randomIndex;
+        while (currentIndex !== 0) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex],
+            array[currentIndex],
+          ];
+        }
+        return array;
+      }
+      const shuffledPages = shuffle(pages);
+
       setTimeout(() => {
         explanation.style.display = "none";
       }, 6000);
@@ -330,7 +346,7 @@
           if (timeleft2 <= 0) {
             clearInterval(downloadTimer2);
             question3.style.display = "none";
-            window.location = "vid8.html";
+            window.location = shuffledPages[0];
           }
         }, 1000);
       }, 45000);
